@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+    "repository": {
+    "type": "git",
+    "url": "git://github.com/benjdj6/mixmax-imgur-command.git"
+  },
   "keywords": [
     "express",
     "node",
@@ -15,5 +19,12 @@
     "mixmax"
   ],
   "author": "Ben Johnston",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "request": "^2.78.0",
+    "synchronize": "^2.0.0"
+  }
 }

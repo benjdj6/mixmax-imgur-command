@@ -1,0 +1,19 @@
+{
+  "name": "mixmax-imgur-command",
+  "version": "1.0.0",
+  "description": "Imgur slash command for MixMax coding challenge",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "js",
+    "javascript",
+    "imgur",
+    "mixmax"
+  ],
+  "author": "Ben Johnston",
+  "license": "ISC"
+}

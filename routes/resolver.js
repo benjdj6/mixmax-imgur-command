@@ -7,10 +7,10 @@ module.exports = function(req, res) {
   var term = req.query.text;
 
   //if query param contains imgur link
-  if (/^https:\/\/imgur\.com\/\S+/.test(term)) {
+  if (/^http:\/\/imgur\.com\/\S+/.test(term)) {
     //Handle the url created from the typeahead endpoint to select a specific
     //Imgur image. 
-    handleIdString(term.replace(/^https:\/\/imgur\.com\//, ''), req, res);
+    handleIdString(term.replace(/^http:\/\/imgur\.com\//, ''), req, res);
   } else {
     //Else, if the user presses enter before typeahead can make a suggesiton
     //handle the term and select the first image result

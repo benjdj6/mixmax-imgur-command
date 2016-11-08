@@ -45,34 +45,20 @@ function handleIdString(id, req, res) {
   }
 
   var image = response.body.data;
+  var data_id = image.id;
 
-  console.log(image);
-
+  //add 'a/' if album 
   if (image.is_album) {
-    handleAlbumString(image, req, res);
+    data_id = 'a/' + image.id;
   }
-  else {
-    handleImageString(image, req, res);
-  }
-}
 
-function handleAlbumString(image, req, res) {
-  //Just album things
-  var html = '<blockquote class="imgur-embed-pub" lang="en" data-id="a/' + 
-      image.id + '"><a href="//imgur.com/' + 
-      image.id + '">' + image.title + 
+  //Insert data into html to embed image or album into email
+  var html = '<blockquote class="imgur-embed-pub" lang="en" data-id="' +
+      data_id + '"><a href="//imgur.com/' +
+      image.id + '">' + image.title +
       '</a></blockquote><script async src="//s.imgur.com/min/embed.js" \
       charset="utf-8"></script>';
-  
-  res.json({
-    body: html
-  });
-}
 
-function handleImageString(image, req, res) {
-  //Just image things
-  var width = image.width > 500 ? 500 : image.cover_width;
-  var html = '<img style="max-width:100%;" src="' + image.link + '" width="' + width + '"/>';
   res.json({
     body: html
   });

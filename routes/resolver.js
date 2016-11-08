@@ -27,8 +27,10 @@ module.exports = function(req, res) {
   }
 };
 
+//Embeds specified image id
 function handleIdString(id, req, res) {
   var response;
+  //get image from imgur
   try {
     response = sync.await(request({
       url: 'https://api.imgur.com/3/gallery/' + encodeURIComponent(id),
@@ -64,8 +66,11 @@ function handleIdString(id, req, res) {
   });
 }
 
+//Get first image for specified search term in case user hits enter
+//too fast for suggestions to load
 function handleSearchString(term, req, res) {
   var response;
+  //Get search results for term
   try {
     response = sync.await(request({
       url: 'https://api.imgur.com/3/gallery/search',
@@ -83,18 +88,28 @@ function handleSearchString(term, req, res) {
     res.status(500).send('Error with Imgur Request');
     return;
   }
+
+  //While there are images check if it is an album, if it's not an album return
+  //embeded image. Albums are avoided to provide a more intuitive user experience.
   var image;
   for (i = 0; i < response.body.data.length; i++) {
     image = response.body.data[i];
     if (!image.is_album && !image.nsfw) {
       var width = image.width > 500 ? 500 : image.cover_width;
-      var html = '<img style="max-width:100%;" src="' + image.link + '" width="' + width + '"/>';
+      var html = '<blockquote class="imgur-embed-pub" lang="en" data-id="' +
+          image.id + '"><a href="//imgur.com/' +
+          image.id + '">' + image.title +
+          '</a></blockquote><script async src="//s.imgur.com/min/embed.js" \
+          charset="utf-8"></script>';
+
       res.json({
         body: html
       });
       return;
     }
   }
+
+  //return no results if no images or no non-albums are found
   res.json([{
       title: '<i>(no results)</i>',
       text: term

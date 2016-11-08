@@ -60,6 +60,8 @@ Link Resolver:
     Resolver API URL: "https://localhost:8443/resolver"
     ```
 
+4. If you run into issues of data not loading you may need to start Chrome in insecure mode since the certificat is self-signed. You can see how to do that [here.](http://developer.mixmax.com/docs/variables-in-templates#insecure-content-https-request-blocked-when-develo)
+
 
 ###How to Use
 To use the slash command just type `/imgur` press `space` and then type in your search term. Images and gifs will load which you can scroll through. Click on one to embed it into the email.

@@ -1,11 +1,12 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var sync = require('synchronize');
-var cors = require('cors');
 var fs = require('fs');
+var cors = require('cors');
 var http = require('http');
 var https = require('https');
+var express = require('express');
+var sync = require('synchronize');
+var bodyParser = require('body-parser');
+
+var app = express();
 
 var key = fs.readFileSync('sslcert/server.key', 'utf8');
 var cert = fs.readFileSync('sslcert/server.crt', 'utf8');

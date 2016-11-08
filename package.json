@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git://github.com/benjdj6/mixmax-imgur-command.git"
   },
@@ -25,6 +25,7 @@
     "cors": "^2.8.1",
     "express": "^4.14.0",
     "request": "^2.78.0",
-    "synchronize": "^2.0.0"
+    "synchronize": "^2.0.0",
+    "underscore": "^1.8.3"
   }
 }

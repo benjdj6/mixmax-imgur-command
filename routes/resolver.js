@@ -6,14 +6,12 @@ var _ = require('underscore');
 
 //This endpoint returns the in-email representation of the image.
 module.exports = function(req, res) {
-  //TODO get the query param check if url or text
   var term = req.query.text;
   if (req.query.url) {
     term = req.query.url;
   }
 
   //if query param contains imgur link
-  //TODO implement album resolver
   if (/^https?:\/\/imgur\.com\/\S+/.test(term)) {
     //Handle the url created from the typeahead endpoint to select a specific
     //Imgur image. 

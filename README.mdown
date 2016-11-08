@@ -25,6 +25,7 @@ Link Resolver:
     
     1. Login or register with imgur and go to the [application registration page](https://api.imgur.com/oauth2/addclient) 
     2. On the Registration page fill in this information:
+
         ```
         Application name: "Mixmax Imgur App" (or anything else that you want)
         Authorization type: "Anonymous usage without user authorization"
@@ -42,6 +43,7 @@ Link Resolver:
 
 ####Mixmax Setup
 1. Go to Mixmax Dashboard > Settings > Integrations & API > Add Slash Command and fill in the following:
+
     ```
     Name: "Search Imgur"
     Command: "imgur"

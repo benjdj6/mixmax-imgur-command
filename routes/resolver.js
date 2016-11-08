@@ -8,6 +8,11 @@ var _ = require('underscore');
 module.exports = function(req, res) {
   //TODO get the query param check if url or text
   var term = req.query.text;
+  if (req.query.url) {
+    term = req.query.url;
+  }
+
+  console.log(term);
 
   //if query param contains imgur link
   //TODO implement album resolver
@@ -40,6 +45,32 @@ function handleIdString(id, req, res) {
   }
 
   var image = response.body.data;
+
+  console.log(image);
+
+  if (image.is_album) {
+    handleAlbumString(image, req, res);
+  }
+  else {
+    handleImageString(image, req, res);
+  }
+}
+
+function handleAlbumString(image, req, res) {
+  //Just album things
+  var html = '<blockquote class="imgur-embed-pub" lang="en" data-id="a/' + 
+      image.id + '"><a href="//imgur.com/' + 
+      image.id + '">' + image.title + 
+      '</a></blockquote><script async src="//s.imgur.com/min/embed.js" \
+      charset="utf-8"></script>';
+  
+  res.json({
+    body: html
+  });
+}
+
+function handleImageString(image, req, res) {
+  //Just image things
   var width = image.width > 500 ? 500 : image.cover_width;
   var html = '<img style="max-width:100%;" src="' + image.link + '" width="' + width + '"/>';
   res.json({

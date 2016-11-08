@@ -12,8 +12,6 @@ module.exports = function(req, res) {
     term = req.query.url;
   }
 
-  console.log(term);
-
   //if query param contains imgur link
   //TODO implement album resolver
   if (/^https?:\/\/imgur\.com\/\S+/.test(term)) {

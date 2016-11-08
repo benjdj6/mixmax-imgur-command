@@ -21,7 +21,23 @@ Link Resolver:
 
 2. Generate a self-signed SSL Certificate using [this guide.](http://www.akadia.com/services/ssh_test_certificate.html) Make sure your key and certificate are stored in a `sslcert` directory.
 
-3. Start the server with `npm start` and it will be listening on `port 8443` for https and `port 8080` for http.
+3. Get a Client ID for Imgur via these steps:
+    
+    1. Login or register with imgur and go to the [application registration page](https://api.imgur.com/oauth2/addclient) 
+    2. On the Registration page fill in this information:
+        ```
+        Application name: "Mixmax Imgur App" (or anything else that you want)
+        Authorization type: "Anonymous usage without user authorization"
+        Authorization callback URL: (leave empty)
+        Email: (your email address)
+        Description: (anything goes)
+        ```
+    3. Follow any further instructions and you should receive a client_id and client_secret in an email shortly.
+    4. Store your client_id in a file called `cred.js` in a new `util` directory with the file contents looking like:
+    >module.exports = 'Client-ID YOUR_CLIENT_ID';
+
+
+4. Start the server with `npm start` and it will be listening on `port 8443` for https and `port 8080` for http.
 
 
 ####Mixmax Setup

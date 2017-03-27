@@ -1,9 +1,9 @@
-##Mixmax Imgur Slash Command and Link Resolver
+## Mixmax Imgur Slash Command and Link Resolver
 
-###Introduction
+### Introduction
 This is a Node.js Express service built using the [Mixmax API](http://developer.mixmax.com/docs/getting-started) that allows Mixmax users to search imgur and select and image or gif to embed into their email using a slash command. It can also function as an independent link resolver for embedding all forms of imgur content.
 
-###In Action
+### In Action
 Slash Command:
 
 <img src="images/slash.gif" height="400">
@@ -12,7 +12,7 @@ Link Resolver:
 
 <img src="images/link.gif" height="400">
 
-###Service Setup
+### Service Setup
 1. Clone this repo and run
 
     >npm install
@@ -22,8 +22,8 @@ Link Resolver:
 2. Generate a self-signed SSL Certificate using [this guide.](http://www.akadia.com/services/ssh_test_certificate.html) Make sure your key and certificate are stored in a `sslcert` directory.
 
 3. Get a Client ID for Imgur via these steps:
-    
-    1. Login or register with imgur and go to the [application registration page](https://api.imgur.com/oauth2/addclient) 
+
+    1. Login or register with imgur and go to the [application registration page](https://api.imgur.com/oauth2/addclient)
     2. On the Registration page fill in this information:
 
         ```
@@ -41,7 +41,7 @@ Link Resolver:
 4. Start the server with `npm start` and it will be listening on `port 8443` for https and `port 8080` for http.
 
 
-###Mixmax Setup
+### Mixmax Setup
 1. Go to Mixmax Dashboard > Settings > Integrations & API > Add Slash Command and fill in the following:
 
     ```
@@ -63,12 +63,12 @@ Link Resolver:
 4. If you run into issues of data not loading you may need to start Chrome in insecure mode since the certificat is self-signed. You can see how to do that [here.](http://developer.mixmax.com/docs/variables-in-templates#insecure-content-https-request-blocked-when-develo)
 
 
-###How to Use
+### How to Use
 To use the slash command just type `/imgur` press `space` and then type in your search term. Images and gifs will load which you can scroll through. Click on one to embed it into the email.
 
 To user the link resolver, simply copy and paste a url to an imgur gif, image, or album and the resolver will do the rest for you.
 
-###Limitations
+### Limitations
 The slash command does not support search for albums, this is because albums were indiscernible from other content in the dropdown. This characteristic of albums could potentially lead to user confusion and frustration when trying to select content for their emails.
 
 Due to this limitation I implemented the ability to use the link resolver with album links. This way a user can still embed an album if they already have the link to one.
